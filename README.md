@@ -1,4 +1,6 @@
 # lel-rc.github.io
-Website
 
-<p><strong>Fuck<strong><p>
+
+## arcinas.info
+
+A lightweight website meant to hold projects and articles I create.
