@@ -1,6 +1,3 @@
-# lel-rc.github.io
-
-
-## arcinas.info
+# arcinas.info
 
 A lightweight website meant to hold projects and articles I create.
