@@ -2,7 +2,7 @@
 title:               arcinas.info
 tagline:             'stuff by lyle arcinas'
 description:         'An impersonal website.'
-url:                 http://lanyon.getpoole.com
+url:                 https://arcinas.info
 baseurl:             ''
 paginate:            5
 permalink:           pretty
