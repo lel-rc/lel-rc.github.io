@@ -1,47 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>arcinas.info</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/png" href="favicon.png">
-</head>
-<link href="styles.css" rel="stylesheet">
-<body>
+---
+layout: default
+title: Home
+---
 
-<div class="header">
-  <h2>arcinas.info</h2>
-  <h6>stuff by lyle arcinas</h6>
-</div>
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ post.url | absolute_url }}">
+        {{ post.title }}
+      </a>
+    </h1>
 
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <h2>Why I've created a website, and why you should too. Part one.</h2>
-      <h5>January 27, 2020</h5>
-      <p>I’ve been really disappointed with the state of the ‘social internet’ as of late. I’ve just become so sick of Instagram, Snapchat, YouTube, Reddit, et al. I’ve spent countless hours scrolling past post after post.
-        I’ve learned so many things from them and made some long-time friends. But I hate it. I feel like it adds zero value to my life. But how could I, a Zoomer, ever hate social media?</p>
-      <p>It seems more and more obvious that these platforms exist only to extract monetary value from your life. I mean, no kidding, right? Every company wants money from their consumers. But I don’t need to tell you that we’re not the consumers, we’re the product. Every picture you post and every video you watch is being tracked by advertisers in order to sell you more and more things. Every interaction is tipped toward extracting monetary value. Ever wonder why your boomer uncle keeps posting racist things to his Facebook wall? Searing headlines and controversial topics are the bread and butter of platforms. Anger heightens engagement more than any other emotion.</p>
-      <p>The common person’s average means of communication most likely goes through a third party in the form of social media. Oftentimes the only way you can contact a person you’ve lost connections with is in the form of their Facebook or Instagram account. This means that logging onto social media to say hi to a friend can become a whirlwind of information as you’re blasted by advertisements and catchy, clickbaity headlines. Just want to watch your friends’ Snapchat stories? No problem, just sit though these ads and navigate the terribly convoluted interface of clickbait articles. </p>
-      <p>But do we even have a choice in the matter? After all, losing social media means losing so many connections to family and friends. No one will be able to know what we’ve accomplished or are proud of. We can only bow down to Silicon Valley, right?</p>
-      <p>No. I say we have a choice in the matter. The free and open Web is not yet dead. We don’t have to go through these sites just to communicate. We can set up our own means of communication by the use of personal websites like this one.</p>
-      <p>I will continue on this topic soon. Thanks for reading.</p>
-    </div>
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+    {{ post.content }}
   </div>
-  <div class="rightcolumn">
-    <div class="card">
-      <h2>About Me</h2>
-      <p>Lyle Arcinas lives in Canada, and is not your friend. You can e-mail him at <a href="mailto:lyle.arcinas@gmail.com" > lyle.arcinas@gmail.com.</a></p>
-    </div>
-    <div class="card">
-      <h3>Other Sites</h3>
-      <p><a href="http://grahamdowney.com">grahamdowney.com</a>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 
-<div class="footer">
-  <h6><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</h6>
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ '/' | absolute_url }}">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
 </div>
-
-</body>
-</html>
